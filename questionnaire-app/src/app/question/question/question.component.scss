@@ -1,0 +1,52 @@
+.headerbox {
+    border-bottom: 3px solid #bebebe;
+    height: 40px;
+    color: #04affff5;
+    font-size: 20px;
+    line-height: 40px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    border-top: 3px solid #bebebe;
+    line-height: 40px;
+  }
+  .primary {
+      color: white;
+      height: 30px;
+      background-color: #1cd2ff;
+      width: 80px;
+  }
+  .add-block {
+    position: fixed;
+    bottom: 40px;
+    text-align: right;
+    border-top: 3px solid #bebebe;
+    background-color: #eeeeee;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #bebebe
+  }
+  .question-block {
+    background-color: #eeeeee;
+    width: 100%;
+    height: 50px;
+    line-height: 40px;
+    border-bottom: 3px solid #bebebe;
+  }
+  .inputbox {
+    height: 25px;
+    border-radius: 6px;
+  }
+  .mini {
+    border-radius: 50%;
+    color: #eeeeee;
+    background-color: #bebebe;
+    font-size: 10px;
+    margin: 4px 2px;
+    padding: 5px;
+  }

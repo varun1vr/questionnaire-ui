@@ -1,0 +1,30 @@
+<div class="row">
+    <div class=" col-xs-12 headerbox">ADD NEW CALL</div>
+</div>
+<div class="row" *ngIf="questions.length > 0">
+    <div class="question-block" *ngFor="let question of questions">
+
+        <div class="col-md-6">
+            {{question}}
+            <input name="txt-question" id="txt-question" type="text" size="100" placeholder="Email Address" autofocus
+                class="inputbox" [placeholder]="'Write the question here'" />
+            <span class="mini">A</span>
+        </div>
+            <div class="col-md-6">
+                <ng-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" class="" [items]="values"
+                    bindLabel="name" bindValue="name">
+                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                        {{item.name}}
+                    </ng-template>
+                </ng-select>
+            </div>
+        
+    </div>
+</div>
+<div class="add-block" (click)="addQuestion()">
+    + Add new question
+</div>
+<div class="footer">
+    <button class="mat-raised-button primary">Save</button>
+    <button class="mat-button">Cancel</button>
+</div>

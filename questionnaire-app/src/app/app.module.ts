@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { QuestionserviceService } from './question/questionservice.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     QuestionModule,
     BrowserAnimationsModule,
@@ -26,7 +29,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [QuestionserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

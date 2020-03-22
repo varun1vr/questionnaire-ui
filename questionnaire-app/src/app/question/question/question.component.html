@@ -1,30 +1,76 @@
 <div class="row">
-    <div class=" col-xs-12 headerbox">ADD NEW CALL</div>
-</div>
-<div class="row" *ngIf="questions.length > 0">
-    <div class="question-block" *ngFor="let question of questions">
-
-        <div class="col-md-6">
-            {{question}}
-            <input name="txt-question" id="txt-question" type="text" size="100" placeholder="Email Address" autofocus
-                class="inputbox" [placeholder]="'Write the question here'" />
-            <span class="mini">A</span>
+    <div *ngIf="index" class="col-md-1 question-block align-center">
+        {{index? index:''}}
+    </div>
+    <div *ngIf="!index" class="col-md-1 question-block align-center">
+        <span class="glyphicon glyphicon-search"></span>
+    </div>
+    <div class="col-md-8 question-block">
+        <input name="txt-question" id="txt-question" type="text" rows="2" size="100" autofocus class="quesbox"
+            [placeholder]="'Write the question here'" [(ngModel)]="question.value"
+            (ngModelChange)="updateValue($event)" />
+    </div>
+    <div class="col-md-1 question-block">
+        <span class="mini">A</span>
+    </div>
+    <div class="col-md-2 question-block">
+        <div class="select-block">
+            <ng-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" class="" [items]="values"
+                bindLabel="name" bindValue="name" (ngModelChange)="valueChanged($event)">
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                    {{item.name}}
+                </ng-template>
+            </ng-select>
         </div>
-            <div class="col-md-6">
-                <ng-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" class="" [items]="values"
-                    bindLabel="name" bindValue="name">
-                    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                        {{item.name}}
-                    </ng-template>
-                </ng-select>
-            </div>
-        
     </div>
 </div>
-<div class="add-block" (click)="addQuestion()">
-    + Add new question
+<div class="row bottom-border form-group" *ngIf="question.selectedValue === 'Multiline text'">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <textarea name="txt-question" class="form-control" rows="4" autofocus [placeholder]="'Write the answer here'"
+            [(ngModel)]="question.answers[0].value" (ngModelChange)="answerChanged($event,0)"></textarea>
+    </div>
 </div>
-<div class="footer">
-    <button class="mat-raised-button primary">Save</button>
-    <button class="mat-button">Cancel</button>
+<div class="form-group" *ngIf="question.selectedValue === 'Single choice'">
+    <div class="row">
+        <div class="col-md-1"> </div>
+        <div class="col-md-8">
+            <input name="txt-question" id="txt-question" type="text" size="100" placeholder="Email Address" autofocus
+                class="inputbox" [placeholder]="'Write the question here'" [(ngModel)]="question.answers[0].value"
+                (ngModelChange)="answerChanged($event,0)" />
+        </div>
+        <div class="col-md-2 add-sub" (click)="addSubQuestion(question.answers[0])">
+            + Add sub question
+        </div>
+    </div>
+    <div class="row"
+        *ngIf="question && question.answers && question.answers.length > 0 && question.answers[0] && question.answers[0].question">
+        <div class="col-md-12">
+            <app-question [question]="question.answers[0].question" (questionData)="updateAnswerQues($event,0)">
+            </app-question>
+        </div>
+    </div>
+</div>
+
+<div class="form-group" *ngIf="question.selectedValue === 'Multiple choice'">
+    <ng-container *ngFor="let answer of question.answers; let i = index">
+        <div class="row bottom-border">
+            <div class="col-md-1"></div>
+            <div class="col-md-9">
+                <input name="txt-question" type="text" size="100" placeholder="Email Address"
+                    autofocus class="inputbox" [placeholder]="'Write the here'" [(ngModel)]="answer.value"
+                    (ngModelChange)="answerChanged($event,i)" />
+            </div>
+            <div class="col-md-2 add-sub" (click)="addSubQuestion(answer)">
+                + Add sub question
+            </div>
+        </div>
+        <div class="row" *ngIf="answer.question">
+            <div class="col-md-12">
+                <app-question [question]="answer.question" (questionData)="updateAnswerQues($event,0)">
+                </app-question>
+            </div>
+        </div>
+    </ng-container>
 </div>

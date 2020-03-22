@@ -5,9 +5,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [QuestionComponent],
+  declarations: [QuestionComponent, HomeComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     CommonModule,
+    HomeComponent,
     QuestionComponent,
     MatButtonModule,
     MatSelectModule,

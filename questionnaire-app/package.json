@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build:prod": "npm run env -s && node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --configuration=prod --output-path=./package/src/main/webapp",
+    "build:qa": "npm run env -s && node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --configuration=qa --output-path=./package/src/main/webapp",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

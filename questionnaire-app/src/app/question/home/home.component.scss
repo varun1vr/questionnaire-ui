@@ -1,0 +1,70 @@
+.main-container {
+    width: 99%;
+    padding: 10px;
+}
+.headerbox {
+    border-bottom: 3px solid #bebebe;
+    height: 40px;
+    color: #04affff5;
+    font-size: 20px;
+    line-height: 40px;
+}
+.footer {
+    position: fixed;
+    bottom: 5px;
+    width: 100%;
+    height: 40px;
+    border-top: 3px solid #bebebe;
+    line-height: 40px;
+    font-size: 14px;
+    color:  #eeeeee;
+  }
+  .add-block {
+    position: fixed;
+    bottom: 45px;
+    text-align: right;
+    border-top: 3px solid #bebebe;
+    background-color: #eeeeee;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #bebebe;
+    font-size: 14px;
+  }
+  .bottom-border {
+    border-bottom: 3px solid #bebebe;
+  }
+  .height-60 {
+      height: 60px;
+      line-height: 60px;
+  }
+  .bg-grey {
+    background-color: #eeeeee;
+  }
+  .align-center {
+      text-align: center;
+  }
+  .inputbox {
+    padding: 5px;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .button-save {
+    font-size: 14px;
+    width: 100px;
+  }
+  .button-cancel {
+    font-size: 14px;
+    width: 100px;
+    color: black;
+  }
+  .scroll-area{
+    width:100%;
+    height:200px;
+    // margin-top:100px;
+    // background-color:green;
+    float:left;
+    overflow: scroll;
+  }

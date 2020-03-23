@@ -1,0 +1,22 @@
+<div class="main-container">
+    <div class="row">
+        <div class="col-md-12 headerbox">ADD NEW CALL</div>
+    </div>
+    <div >
+        <ng-container *ngFor="let index of indexList" class="scroll-area">
+            <app-question [question]="questions.get(index)" [index]="index" (questionData)="updateQuestion($event,index)">
+            </app-question>
+        </ng-container>
+    </div>
+    <div class="row add-block" (click)="addQuestion()">
+        <div class="col-md-12">
+            + Add new question
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="col-md-12">
+            <button class="btn btn-primary button-save" (click)="save(questions)">Save</button>
+            <button class="btn secondary button-cancel">Cancel</button>
+        </div>
+    </div>
+</div>

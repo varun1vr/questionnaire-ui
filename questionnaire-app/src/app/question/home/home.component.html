@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-12 headerbox">ADD NEW CALL</div>
     </div>
-    <div >
-        <ng-container *ngFor="let index of indexList" class="scroll-area">
+    <div class="scroll-area">
+        <ng-container *ngFor="let index of indexList" >
             <app-question [question]="questions.get(index)" [index]="index" (questionData)="updateQuestion($event,index)">
             </app-question>
         </ng-container>

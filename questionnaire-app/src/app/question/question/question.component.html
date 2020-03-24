@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-2 col-sm-2 question-block">
         <div class="select-block">
-            <ng-select [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" class="" [items]="values"
+            <ng-select [(ngModel)]="questionType" [ngModelOptions]="{standalone: true}" class="" [items]="values"
                 bindLabel="name" bindValue="name" (ngModelChange)="valueChanged($event)">
                 <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
                     {{item.name}}
@@ -24,7 +24,7 @@
         </div>
     </div>
 </div>
-<div class="row bottom-border form-group left-10" *ngIf="question.selectedValue === 'Multiline text'">
+<div class="row bottom-border form-group left-10" *ngIf="question.questionType === 'Multiline text'">
     <div class="col-md-1 col-sm-1">
         <span class="glyphicon glyphicon-arrow-right"></span>
     </div>
@@ -33,7 +33,7 @@
             [(ngModel)]="question.answers[0].value" (ngModelChange)="answerChanged($event,0)"></textarea>
     </div>
 </div>
-<div class="form-group" *ngIf="question.selectedValue === 'Single choice'">
+<div class="form-group" *ngIf="question.questionType === 'Single choice'">
     <div class="row left-10">
         <div class="col-md-1 col-sm-1">
             <span class="glyphicon glyphicon-arrow-right"></span> </div>
@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<div class="form-group" *ngIf="question.selectedValue === 'Multiple choice'">
+<div class="form-group" *ngIf="question.questionType === 'Multiple choice'">
     <ng-container *ngFor="let answer of question.answers; let i = index">
         <div class="row bottom-border left-10">
             <div class="col-md-1 col-sm-1">

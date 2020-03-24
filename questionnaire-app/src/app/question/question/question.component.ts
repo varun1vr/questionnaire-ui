@@ -12,7 +12,7 @@ export class QuestionComponent implements OnInit {
 
   questions = new Map();
   values: any[];
-  selectedValue: string;
+  questionType: string;
   @Output()
   questionData: EventEmitter<IQuestionData> = new EventEmitter();
   @Input()
@@ -34,15 +34,15 @@ export class QuestionComponent implements OnInit {
       name: 'Multiple choice',
       value: 'Multiple choice'
     }];
-    this.selectedValue = this.values[0].value;
-    this.question.selectedValue = this.values[0].value;
+    this.questionType = this.values[0].value;
+    this.question.questionType = this.values[0].value;
     this.question.answers = new Array<Answer>(1);
     this.question.answers[0] = new Answer('');
   }
 
   valueChanged($event: string) {
-    this.question.selectedValue = $event;
-    this.selectedValue = $event;
+    this.question.questionType = $event;
+    this.questionType = $event;
     if ($event === 'Multiple choice') {
       this.question.answers = new Array<Answer>(5);
       this.question.answers[0] = new Answer('');

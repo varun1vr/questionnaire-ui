@@ -5,17 +5,17 @@ export class IQuestionData {
     value: string;
     answers: Answer[];
     refAnswerId?: number;
-    selectedValue: string;
+    questionType: string;
     subquestions?: IQuestionData[];
     /**
      *
      */
     // tslint:disable-next-line: align
-    constructor(value: string, selectedValue?: string, answers?: Answer[], id?: number, subquestions?: IQuestionData[]) {
+    constructor(value: string, questionType?: string, answers?: Answer[], id?: number, subquestions?: IQuestionData[]) {
         this.value = value;
         this.id = id;
         this.answers = answers;
-        this.selectedValue = selectedValue;
+        this.questionType = questionType;
         this.subquestions = subquestions;
 
     }
